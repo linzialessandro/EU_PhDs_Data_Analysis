@@ -1,41 +1,39 @@
-# Analysis of Job Prospects for Mathematics PhDs in the EU
+# Job Prospects for Mathematics PhDs in the EU: A Data-Driven Analysis
 
 ## About This Project
 
-As a recent PhD graduate in Mathematics, I embarked on this data analysis project to navigate my own career path and better understand the job market landscape for fellow mathematicians in the European Union. This project is not just an academic exercise; it's a practical exploration of the opportunities and challenges that await us after graduation.
+As a recent PhD graduate in Mathematics, I created this project to explore a question of both personal and professional interest: what are the real job prospects for mathematics PhDs in the European Union? This analysis is my attempt to answer that question using a data-driven approach, and to share my findings with the broader academic and professional community.
 
-In this analysis, I delve into various datasets to answer questions that are top-of-mind for many of us: What are the employment rates for math PhDs? Which sectors are hiring? What are the salary expectations? And how do these factors vary across different EU countries?
-
-My goal is to provide a clear and data-driven overview of the career prospects for mathematics PhDs in the EU, and to share my findings with the community. I hope this project can be a valuable resource for other PhD students and graduates in mathematics as they plan their own careers.
+This project goes beyond a simple analysis of employment rates. It delves into the nuances of the job market, exploring career paths, salary expectations, gender disparities, and the impact of different policy scenarios. My hope is that this work will be a valuable resource for current and future PhD students, as well as for anyone interested in the career trajectories of highly-skilled individuals in the EU.
 
 ## Key Findings
 
-This analysis reveals a positive outlook for mathematics PhDs in the EU, with a high overall employment rate and diverse career opportunities. Here are some of the key findings:
+This analysis reveals a generally positive outlook for mathematics PhDs in the EU, but also highlights some important challenges and variations across countries and sectors.
 
-*   **High Employability:** Over 95% of mathematics PhDs find employment within one year of graduation.
-*   **Diverse Career Paths:** While academia remains a popular choice, a significant and growing number of PhDs are finding opportunities in industry and government, particularly in sectors like data science, finance, and technology.
-*   **Industry Salary Premium:** The industry sector offers a significant salary premium compared to academia, with an average salary that is almost 47% higher.
-*   **Geographic Variations:** Employment rates, salaries, and time to employment vary significantly across different EU countries.
+*   **High Employability:** The average employment rate for mathematics PhDs is **95.7%** within one year of graduation, rising to **97.6%** within three years.
+*   **Diverse Career Paths:** While academia is still the most common path (69%), a significant number of PhDs are finding opportunities in industry (21%) and government (10%).
+*   **The Industry Advantage:** The industry sector offers a substantial **47% salary premium** compared to academia, with an average monthly salary of €4,158 versus €2,849.
+*   **Gender Gap:** A persistent gender gap of **1.8 percentage points** in employment rates exists, favoring men.
+*   **Skills in Demand:** A high percentage of PhDs (**77.5%**) report that their doctoral skills are used extensively in their jobs.
 
-For a more detailed breakdown of the analysis, please see the `EU_PhDs_Data_Analysis.ipynb` notebook.
+## Project Highlights
+
+This project demonstrates a comprehensive data analysis workflow, including:
+
+*   **Data Collection and Integration:** Gathering data from multiple sources, including the Eurostat API, and integrating them into a cohesive dataset.
+*   **Exploratory Data Analysis:** A deep dive into the data to uncover trends and insights, visualized through a comprehensive dashboard.
+*   **Predictive Modeling:** Using machine learning models (Linear Regression, Random Forest, Gradient Boosting) to predict employment outcomes and perform scenario analysis.
+*   **Policy Recommendations:** Providing evidence-based policy recommendations based on the analysis.
 
 ## How to Run This Project
 
-To explore the analysis yourself, you will need to have Python and Jupyter Notebook installed. You will also need to install the following libraries:
-
-*   pandas
-*   numpy
-*   matplotlib
-*   seaborn
-*   scikit-learn
-
-You can install these libraries using pip:
+To run this analysis, you will need Python and Jupyter Notebook. You can install the required libraries using pip:
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
+pip install pandas numpy matplotlib seaborn plotly folium scikit-learn statsmodels requests beautifulsoup4 eurostat
 ```
 
-Once you have installed the dependencies, you can run the Jupyter Notebook:
+Once the dependencies are installed, you can run the notebook:
 
 ```bash
 jupyter notebook EU_PhDs_Data_Analysis.ipynb
@@ -43,10 +41,10 @@ jupyter notebook EU_PhDs_Data_Analysis.ipynb
 
 ## Data Sources
 
-This analysis is based on data from the following sources:
+This analysis uses data from a variety of sources to provide a comprehensive view of the job market:
 
-*   Eurostat
-*   AlmaLaurea
-*   OECD Careers of Doctorate Holders (CDH) project
-*   ESF Career Tracking surveys
-*   OECD Employment Database
+*   **Eurostat:** For PhD graduation data.
+*   **AlmaLaurea:** For employment outcomes and salaries of Italian PhDs.
+*   **OECD Careers of Doctorate Holders (CDH) project:** For international career data.
+*   **ESF Career Tracking:** For European-wide PhD employment and mobility patterns.
+*   **OECD Employment Database:** For broader labor market indicators.
