@@ -1,0 +1,25 @@
+---
+title: "Mathematics PhDs in Europe"
+subtitle: "A public notebook of official data"
+---
+
+I have a mathematics PhD and I teach in a high school. This site is my public notebook of what official statistics actually record about mathematics and statistics doctorates in Europe — how many are awarded, and, for Italy only so far, what jobs they hold.
+
+It is not a forecast of your career, and it does not invent an EU job-market average.
+
+## What is here
+
+- **[Supply](supply.qmd)** — Eurostat counts of doctoral degrees in *Mathematics and statistics* (ISCED-F 2013 `F054`), by country, year, and sex.
+- **[Italy](italy.qmd)** — AlmaLaurea employment outcomes for **scienze di base** (basic sciences), the official closest field. Not mathematics-only.
+- **[Methods](methods.qmd)** — definitions, exclusions, and why some familiar headlines are missing.
+- **[Downloads](downloads.qmd)** — the same CSV files the pages use.
+
+## What is not here
+
+No EU employment rate, salary, or gender-gap figure. Those series are not published on a common definition for mathematics PhDs, and this site will not blend national surveys into one.
+
+No machine-learning forecasts, no policy scenarios, no map of “job prospects.”
+
+## How this grows
+
+A new country or a new official table becomes a new folder under `data/` and a new page. Modules stay side by side. They are not averaged together later unless the series are definition-matched and we say so explicitly.

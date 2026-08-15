@@ -1,0 +1,14 @@
+.venv/
+.tools/
+.DS_Store
+__pycache__/
+*.py[cod]
+.quarto/
+/_site/
+/_freeze/
+*.quarto_ipynb
+.jupyter/
+*.egg-info/
+
+/.quarto/
+**/*.quarto_ipynb

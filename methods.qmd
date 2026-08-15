@@ -1,0 +1,58 @@
+---
+title: "Methods"
+---
+
+## Purpose
+
+The question is narrow: what do **official tables** say about the production of mathematics and statistics doctorates in Europe, and about the first jobs of the closest Italian PhD field?
+
+The primary reader is the author — a mathematics PhD working as a high-school teacher. The pages are public so the work can be checked.
+
+## Two layers
+
+| Layer | Source | Unit of analysis | Question it can answer |
+| --- | --- | --- | --- |
+| Supply | Eurostat `educ_uoe_grad02` | ISCED 2011 `ED8` × ISCED-F 2013 `F054` | How many doctoral degrees in mathematics and statistics were awarded? |
+| Italy outcomes | AlmaLaurea PhD employment survey | Official area **scienze di base** (basic sciences) | What jobs, pay, and contracts does that Italian field report? |
+
+The layers are not the same population. They are not joined into one “EU math PhD career” file.
+
+## Eurostat rules
+
+- **Field.** `F054` Mathematics and statistics. Not `F05` (natural sciences, mathematics and statistics), which also includes physics, chemistry, and biology.
+- **Level.** `ED8` doctoral or equivalent.
+- **Unit.** Number of graduates (`NR`). The old notebook called `educ_uoe_grad03`, which is a percentage distribution.
+- **Years.** 2013 onward, when ISCED-F 2013 is the classification in force. Earlier columns exist in the raw file and are not used on the site.
+- **Geography.** Named countries, plus Eurostat’s own aggregates (`EU27_2020`, `EU28`) when they appear. Country charts do not treat an aggregate as a country. A “sum of countries” is not computed: missing members would make that sum too small.
+- **Sex.** Total, women, men — as Eurostat publishes them.
+- **Missing values.** Left missing. Zeros are shown as zeros. Denmark reports 335 and 373 doctoral F054 graduates in 2013–2014 and then 0 every year through 2024; that is almost certainly a reporting break, not a vanished programme. It is not corrected here.
+
+Refresh is a deliberate run of `src/fetch_eurostat_f054.py` and a commit. The site does not call Eurostat when a page is opened.
+
+## AlmaLaurea rules
+
+- Extract by hand from the official databank. No scraper as source of truth.
+- Official field is **scienze di base** (basic sciences), not mathematics-only.
+- Keep that name. Do not retitle the page “mathematics PhDs.”
+- Do not recode *other organisation or firm* as high-school teaching.
+- The 3-year table is a smaller set of universities, not a follow-up of the 1-year cohort.
+
+## What we refuse to publish
+
+- An EU employment rate, salary, or gender gap for mathematics PhDs
+- Predictions from models trained on a handful of country rows
+- Policy impact percentages
+- Synthetic or “research-based” stand-in tables
+- Career advice
+
+## Reproducibility
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python src/fetch_eurostat_f054.py
+quarto render
+```
+
+The rendered site reads only files under `data/`.

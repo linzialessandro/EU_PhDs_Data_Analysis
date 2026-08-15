@@ -1,0 +1,150 @@
+---
+title: "Supply"
+subtitle: "Doctoral degrees in Mathematics and statistics"
+execute:
+  echo: false
+---
+
+These charts are counts of **degrees awarded** (Eurostat `educ_uoe_grad02`, ISCED `ED8`, field `F054`). They are not employment rates.
+
+Missing country-years are missing. A zero is a zero, including Denmark’s run of zeros after 2014, which looks like a reporting break and is not corrected.
+
+```{python}
+from pathlib import Path
+
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from IPython.display import Markdown, display
+
+DATA = Path("data/supply/eurostat-f054/graduates_long.csv")
+
+df = pd.read_csv(DATA)
+df["year"] = df["year"].astype(int)
+
+totals = df[(df["sex"] == "T") & (~df["is_aggregate"])].copy()
+eu27 = df[(df["geo"] == "EU27_2020") & (df["sex"] == "T")].copy()
+
+latest = int(df["year"].max())
+latest_countries = totals[totals["year"] == latest].dropna(subset=["graduates"]).sort_values("graduates", ascending=False)
+italy_latest = totals[(totals["country"] == "Italy") & (totals["year"] == latest)].dropna(subset=["graduates"])
+
+italy_bit = (
+    f"Italy’s published count in {latest} is **{int(italy_latest['graduates'].iloc[0]):,}** degrees."
+    if len(italy_latest)
+    else f"Italy has no published total for {latest}."
+)
+
+display(Markdown(
+    f"Snapshot years **{int(df['year'].min())}–{latest}**. "
+    f"In {latest}, **{len(latest_countries)}** countries have a non-missing total. "
+    f"{italy_bit}"
+))
+```
+
+## Official EU-27 total
+
+This line is Eurostat’s `EU27_2020` series, not a sum of the country rows below. Years with no official aggregate are omitted.
+
+```{python}
+fig = px.line(
+    eu27.dropna(subset=["graduates"]),
+    x="year",
+    y="graduates",
+    markers=True,
+    labels={"year": "Year", "graduates": "Doctoral degrees (F054)"},
+)
+fig.update_layout(
+    title="EU-27 (Eurostat aggregate): mathematics and statistics doctorates",
+    yaxis_title="Degrees awarded",
+    xaxis=dict(dtick=1),
+    margin=dict(t=50, l=40, r=20, b=40),
+    height=380,
+)
+fig.show()
+```
+
+## Countries in the latest year
+
+```{python}
+fig = px.bar(
+    latest_countries,
+    x="graduates",
+    y="country",
+    orientation="h",
+    labels={"graduates": "Doctoral degrees (F054)", "country": ""},
+)
+fig.update_layout(
+    title=f"F054 doctoral degrees in {latest} (countries with a published total)",
+    height=max(420, 22 * len(latest_countries)),
+    margin=dict(t=50, l=10, r=20, b=40),
+    yaxis=dict(autorange="reversed"),
+)
+fig.show()
+```
+
+## One country over time
+
+Pick a country. Empty years are unpublished, not zero.
+
+```{python}
+country_order = sorted(totals["country"].unique())
+default = "Italy" if "Italy" in country_order else country_order[0]
+series = totals.sort_values(["country", "year"])
+
+fig = go.Figure()
+for country, part in series.groupby("country", sort=False):
+    fig.add_trace(
+        go.Scatter(
+            x=part["year"],
+            y=part["graduates"],
+            mode="lines+markers",
+            name=country,
+            visible=(country == default),
+            connectgaps=False,
+        )
+    )
+
+buttons = []
+for i, country in enumerate(country_order):
+    visible = [c == country for c in country_order]
+    buttons.append(dict(label=country, method="update", args=[{"visible": visible}, {"title": f"{country}: F054 doctoral degrees"}]))
+
+fig.update_layout(
+    title=f"{default}: F054 doctoral degrees",
+    updatemenus=[dict(buttons=buttons, x=0, xanchor="left", y=1.18, yanchor="top")],
+    xaxis=dict(title="Year", dtick=1),
+    yaxis=dict(title="Degrees awarded"),
+    height=420,
+    margin=dict(t=80, l=40, r=20, b=40),
+    showlegend=False,
+)
+fig.show()
+```
+
+## Sex
+
+Eurostat publishes women, men, and a total. The total is Eurostat’s total, not always the sum of the two sexes (rounding and missing sex breakdowns happen).
+
+```{python}
+sex = df[(~df["is_aggregate"]) & (df["sex"].isin(["F", "M"]))].copy()
+latest_sex = sex[sex["year"] == latest].dropna(subset=["graduates"])
+
+fig = px.bar(
+    latest_sex.sort_values("country"),
+    x="country",
+    y="graduates",
+    color="sex_label",
+    barmode="group",
+    labels={"graduates": "Doctoral degrees (F054)", "country": "", "sex_label": ""},
+)
+fig.update_layout(
+    title=f"Women and men, {latest} (published cells only)",
+    height=420,
+    margin=dict(t=50, l=40, r=20, b=80),
+    xaxis_tickangle=-45,
+)
+fig.show()
+```
+
+Italy is missing 2015–2018 in this table. Those years are not estimated on this page. See [Methods](methods.qmd) for the Denmark zeros and the other exclusions.

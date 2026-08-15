@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+  resources:
+    - data/supply/eurostat-f054/**
+    - data/outcomes/italy-almalaurea/**
+
+website:
+  title: "Mathematics PhDs in Europe"
+  description: "A public notebook of official data on mathematics and statistics doctorates."
+  repo-url: https://github.com/linzialessandro/EU_PhDs_Data_Analysis
+  repo-actions: [source, issue]
+  navbar:
+    title: "Mathematics PhDs in Europe"
+    left:
+      - href: index.qmd
+        text: Home
+      - href: supply.qmd
+        text: Supply
+      - href: italy.qmd
+        text: Italy
+      - href: methods.qmd
+        text: Methods
+      - href: downloads.qmd
+        text: Downloads
+  page-footer:
+    left: "Numbers come only from cited snapshots in this repository."
+    right: "Alessandro Linzi"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles.scss
+    toc: true
+    toc-location: right
+    code-fold: true
+    embed-resources: false
+    link-external-newwindow: true
+
+execute:
+  echo: false
+  warning: false
+  freeze: auto
+  enabled: true

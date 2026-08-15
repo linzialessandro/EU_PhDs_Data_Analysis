@@ -1,0 +1,115 @@
+indicator,official_label_en,official_label_it,value,unit,n,years_after_phd,notes
+phd_holders,Number of PhD holders,Numero di dottori di ricerca,1852,count,1852,1,Population in the selected collective
+interviewed,Number interviewed,Numero di intervistati,1268,count,1268,1,
+response_rate_all,Response rate on all PhD holders,Tasso di risposta sul totale dei dottori di ricerca,68.5,percent,1852,1,Includes those who refused contact. AlmaLaurea note 1.
+response_rate_contactable,Response rate on contactable PhD holders,Tasso di risposta sui dottori di ricerca contattabili,83.3,percent,,1,AlmaLaurea note 2.
+share_men,Men,Uomini,59.8,percent,,1,Share of the analysed population
+share_women,Women,Donne,40.2,percent,,1,Share of the analysed population
+mean_age_at_phd,Mean age at the doctorate (years),Età al dottorato (medie in anni),30.7,years,,1,AlmaLaurea note 3.
+employment_rate_men,Employment rate — men,Tasso di occupazione — Uomini,95.2,percent,,1,Paid work or paid training. AlmaLaurea note 7.
+employment_rate_women,Employment rate — women,Tasso di occupazione — Donne,94.3,percent,,1,Paid work or paid training. AlmaLaurea note 7.
+employment_rate,Employment rate — total,Tasso di occupazione — Totale,94.9,percent,,1,Paid work or paid training. AlmaLaurea note 7.
+unemployment_rate,Unemployment rate,Tasso di disoccupazione,3.0,percent,,1,ILO-style definition. AlmaLaurea note 8.
+employed_n,Number employed,Numero di occupati,1203,count,1203,1,AlmaLaurea note 9.
+continued_pre_phd_job,Continued a job started before the doctorate,Proseguono il lavoro iniziato prima del conseguimento del dottorato,20.0,percent,1203,1,Share of the employed
+did_not_continue_pre_phd_job,Did not continue a job started before the doctorate,Non proseguono il lavoro iniziato prima del conseguimento del dottorato,9.3,percent,1203,1,Share of the employed
+started_work_after_phd,Started work after the doctorate,Hanno iniziato a lavorare dopo il conseguimento del dottorato,70.5,percent,1203,1,Share of the employed
+months_phd_to_job_search,Months from doctorate to start of first job search,Tempo dal dottorato all'inizio della ricerca del primo lavoro,0.2,months,,1,Only those who started the current job after the degree. AlmaLaurea note 10.
+months_search_to_job,Months from start of search to first job,Tempo dall'inizio della ricerca al reperimento del primo lavoro,1.4,months,,1,AlmaLaurea note 10.
+months_phd_to_first_job,Months from doctorate to first job,Tempo dal dottorato al reperimento del primo lavoro,1.6,months,,1,AlmaLaurea note 10.
+occupation_senior_management,Entrepreneurs and senior management,Imprenditori e alta dirigenza,1.0,percent,,1,Among employed who answered the occupation question. AlmaLaurea note 11.
+occupation_intellectual,Intellectual scientific and highly skilled professions,Professioni intellettuali scientifiche e di elevata specializzazione,95.7,percent,,1,AlmaLaurea note 11.
+occupation_university_researcher,University researchers and graduate technicians,Ricercatori e tecnici laureati nell'università,73.1,percent,,1,Subset of intellectual professions. AlmaLaurea note 11.
+occupation_other_intellectual,Other intellectual scientific and highly skilled professions,Altre professioni intellettuali scientifiche e di elevata specializzazione,22.6,percent,,1,AlmaLaurea note 11.
+occupation_other,Other occupations,Altre professioni,3.4,percent,,1,AlmaLaurea notes 11 and 12.
+contract_self_employed,Self-employed,Attività in proprio,2.1,percent,,1,AlmaLaurea note 13.
+contract_permanent,Permanent contract,Tempo indeterminato,21.8,percent,,1,
+contract_fixed_term,Fixed-term contract,Tempo determinato,22.1,percent,,1,
+contract_scholarship,Post-doc study or research scholarship,Borsa post-doc di studio o di ricerca,5.7,percent,,1,AlmaLaurea note 14.
+contract_research_grant,Research grant,Assegno di ricerca,45.7,percent,,1,
+contract_training,Training contracts,Contratti formativi,1.1,percent,,1,AlmaLaurea note 15.
+contract_other,Other contractual forms,Altre forme contrattuali,1.2,percent,,1,AlmaLaurea note 16.
+contract_none,No contract,Senza contratto,,percent,,1,Suppressed or not published (shown as a dash).
+smart_working,Smart working,Diffusione dello smart working,50.2,percent,,1,AlmaLaurea note 17.
+part_time,Part-time,Diffusione del part-time,2.7,percent,,1,
+involuntary_part_time,Involuntary part-time,Diffusione del part-time involontario,1.2,percent,,1,AlmaLaurea note 18.
+weekly_hours,Mean weekly hours,Numero di ore settimanali di lavoro (medie),40.2,hours,,1,AlmaLaurea note 19.
+sector_public,Public sector,Pubblico,71.2,percent,,1,
+sector_private,Private sector,Privato,26.8,percent,,1,
+sector_nonprofit,Non-profit,Non profit,1.8,percent,,1,
+branch_it,Computing,Informatica,5.2,percent,,1,
+branch_education_research,Education and research,Istruzione e ricerca,73.8,percent,,1,"Schools universities and research bodies public and private. AlmaLaurea note 26. Not a teacher count."
+branch_industry_total,Industry total,Totale industria,12.1,percent,,1,
+branch_services_total,Services total,Totale servizi,86.7,percent,,1,
+edu_research_university,University (among education and research),Università,66.7,percent,,1,Share of those in the education-and-research branch. AlmaLaurea note 28.
+edu_research_institute,Research institute (among education and research),Istituto di ricerca,24.3,percent,,1,AlmaLaurea note 28.
+edu_research_other,Other organisation or firm (among education and research),Altro ente o impresa,7.0,percent,,1,"Residual. Schools sit here with other non-university employers. Not a high-school teacher count. AlmaLaurea note 28."
+research_activity_high,Does research to a large extent,Svolgimento di attività di ricerca — in misura elevata,77.9,percent,,1,
+research_activity_low,Does research to a limited extent,Svolgimento di attività di ricerca — in misura ridotta,13.7,percent,,1,
+research_activity_none,Does no research,Svolgimento di attività di ricerca — per niente,8.1,percent,,1,
+work_geo_northwest,North-West,Nord-Ovest,21.3,percent,,1,
+work_geo_northeast,North-East,Nord-Est,19.5,percent,,1,
+work_geo_centre,Centre,Centro,19.4,percent,,1,
+work_geo_south,South,Sud,11.6,percent,,1,
+work_geo_islands,Islands,Isole,6.9,percent,,1,
+work_geo_abroad,Abroad,Estero,21.0,percent,,1,
+pay_net_monthly_men,Mean net monthly pay — men,Retribuzione mensile netta — Uomini,2024,euro,,1,AlmaLaurea note 29. Midpoint of 250-euro bands.
+pay_net_monthly_women,Mean net monthly pay — women,Retribuzione mensile netta — Donne,1878,euro,,1,AlmaLaurea note 29.
+pay_net_monthly,Mean net monthly pay — total,Retribuzione mensile netta — Totale,1965,euro,,1,AlmaLaurea note 29.
+skills_used_high,Uses doctoral skills to a large extent,Utilizzo delle competenze acquisite con il dottorato — in misura elevata,81.9,percent,,1,
+skills_used_low,Uses doctoral skills to a limited extent,Utilizzo delle competenze acquisite con il dottorato — in misura ridotta,14.8,percent,,1,
+skills_used_none,Does not use doctoral skills,Utilizzo delle competenze acquisite con il dottorato — per niente,3.1,percent,,1,
+phd_required_by_law,Doctorate required by law,Richiesto per legge,43.0,percent,,1,
+phd_not_required_necessary,Doctorate not required but necessary,Non richiesto ma necessario,22.1,percent,,1,
+phd_not_required_useful,Doctorate not required but useful,Non richiesto ma utile,29.9,percent,,1,
+phd_not_required_not_useful,Doctorate neither required nor useful,Non richiesto né utile,4.8,percent,,1,
+effectiveness_high,Doctorate very effective or effective,Molto efficace/Efficace,83.4,percent,,1,AlmaLaurea note 30.
+effectiveness_medium,Doctorate fairly effective,Abbastanza efficace,11.8,percent,,1,
+effectiveness_low,Doctorate little or not at all effective,Poco/Per nulla efficace,4.8,percent,,1,
+job_satisfaction,Job satisfaction (mean 1-10),Soddisfazione per il lavoro svolto (medie scala 1-10),7.9,score,,1,
+employed_job_seeking,Employed who are looking for work,Occupati che cercano lavoro,27.3,percent,,1,
+would_repeat_same,Would enrol again in the same doctorate at the same university,Allo stesso dottorato nello stesso Ateneo,72.7,percent,,1,
+would_repeat_other_same_uni,Would enrol in another doctorate at the same university,Ad un altro dottorato nello stesso Ateneo,2.3,percent,,1,
+would_repeat_other_italian,Would enrol in a doctorate at another Italian university,Ad un dottorato in un altro Ateneo italiano,4.5,percent,,1,
+would_repeat_abroad,Would enrol in a doctorate at a foreign university,Ad un dottorato in un Ateneo estero,14.2,percent,,1,
+would_not_repeat,Would not enrol in a doctorate again,Non si iscriverebbero più ad un dottorato,5.6,percent,,1,
+phd_holders,Number of PhD holders,Numero di dottori di ricerca,578,count,578,3,Smaller collective: fewer universities than the 1-year survey.
+interviewed,Number interviewed,Numero di intervistati,372,count,372,3,
+response_rate_all,Response rate on all PhD holders,Tasso di risposta sul totale dei dottori di ricerca,64.4,percent,578,3,
+response_rate_contactable,Response rate on contactable PhD holders,Tasso di risposta sui dottori di ricerca contattabili,83.6,percent,,3,
+share_men,Men,Uomini,56.2,percent,,3,
+share_women,Women,Donne,43.8,percent,,3,
+mean_age_at_phd,Mean age at the doctorate (years),Età al dottorato (medie in anni),30.7,years,,3,
+employment_rate_men,Employment rate — men,Tasso di occupazione — Uomini,97.1,percent,,3,
+employment_rate_women,Employment rate — women,Tasso di occupazione — Donne,97.0,percent,,3,
+employment_rate,Employment rate — total,Tasso di occupazione — Totale,97.0,percent,,3,
+unemployment_rate,Unemployment rate,Tasso di disoccupazione,1.6,percent,,3,
+employed_n,Number employed,Numero di occupati,361,count,361,3,
+continued_pre_phd_job,Continued a job started before the doctorate,Proseguono il lavoro iniziato prima del conseguimento del dottorato,8.0,percent,361,3,
+did_not_continue_pre_phd_job,Did not continue a job started before the doctorate,Non proseguono il lavoro iniziato prima del conseguimento del dottorato,11.6,percent,361,3,
+started_work_after_phd,Started work after the doctorate,Hanno iniziato a lavorare dopo il conseguimento del dottorato,80.3,percent,361,3,
+occupation_university_researcher,University researchers and graduate technicians,Ricercatori e tecnici laureati nell'università,59.6,percent,,3,
+occupation_other_intellectual,Other intellectual scientific and highly skilled professions,Altre professioni intellettuali scientifiche e di elevata specializzazione,35.5,percent,,3,
+occupation_other,Other occupations,Altre professioni,4.6,percent,,3,
+contract_permanent,Permanent contract,Tempo indeterminato,36.6,percent,,3,
+contract_fixed_term,Fixed-term contract,Tempo determinato,31.6,percent,,3,
+contract_research_grant,Research grant,Assegno di ricerca,24.7,percent,,3,
+contract_scholarship,Post-doc study or research scholarship,Borsa post-doc di studio o di ricerca,2.2,percent,,3,
+sector_public,Public sector,Pubblico,63.7,percent,,3,
+sector_private,Private sector,Privato,33.2,percent,,3,
+branch_education_research,Education and research,Istruzione e ricerca,62.9,percent,,3,Not a teacher count.
+branch_it,Computing,Informatica,5.8,percent,,3,
+edu_research_university,University (among education and research),Università,60.8,percent,,3,Share of those in the education-and-research branch.
+edu_research_institute,Research institute (among education and research),Istituto di ricerca,22.0,percent,,3,
+edu_research_other,Other organisation or firm (among education and research),Altro ente o impresa,15.4,percent,,3,Residual. Not a high-school teacher count.
+work_geo_abroad,Abroad,Estero,26.0,percent,,3,
+pay_net_monthly_men,Mean net monthly pay — men,Retribuzione mensile netta — Uomini,2348,euro,,3,
+pay_net_monthly_women,Mean net monthly pay — women,Retribuzione mensile netta — Donne,2146,euro,,3,
+pay_net_monthly,Mean net monthly pay — total,Retribuzione mensile netta — Totale,2257,euro,,3,
+skills_used_high,Uses doctoral skills to a large extent,Utilizzo delle competenze acquisite con il dottorato — in misura elevata,76.2,percent,,3,
+phd_required_by_law,Doctorate required by law,Richiesto per legge,37.1,percent,,3,
+phd_not_required_necessary,Doctorate not required but necessary,Non richiesto ma necessario,21.1,percent,,3,
+phd_not_required_useful,Doctorate not required but useful,Non richiesto ma utile,36.6,percent,,3,
+phd_not_required_not_useful,Doctorate neither required nor useful,Non richiesto né utile,5.3,percent,,3,
+job_satisfaction,Job satisfaction (mean 1-10),Soddisfazione per il lavoro svolto (medie scala 1-10),8.1,score,,3,
+employed_job_seeking,Employed who are looking for work,Occupati che cercano lavoro,25.5,percent,,3,

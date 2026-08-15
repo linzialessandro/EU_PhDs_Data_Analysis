@@ -1,0 +1,25 @@
+---
+title: "Downloads"
+---
+
+These are the committed snapshots. If a file is not listed, it is not on the site.
+
+## Supply (Eurostat)
+
+| File | Contents |
+| --- | --- |
+| [graduates_long.csv](data/supply/eurostat-f054/graduates_long.csv) | Country, year, sex, headcount |
+| [graduates_total.csv](data/supply/eurostat-f054/graduates_total.csv) | Same, totals only (`sex = T`) |
+| [raw_educ_uoe_grad02_ed8_f054.csv](data/supply/eurostat-f054/raw_educ_uoe_grad02_ed8_f054.csv) | Wide table as downloaded |
+| [metadata.json](data/supply/eurostat-f054/metadata.json) | Retrieval time and filters |
+| [SOURCES.md](data/supply/eurostat-f054/SOURCES.md) | Citation and exclusions |
+
+## Italy (AlmaLaurea)
+
+Official area: **scienze di base** (basic sciences). Not mathematics-only.
+
+| File | Contents |
+| --- | --- |
+| [outcomes.csv](data/outcomes/italy-almalaurea/outcomes.csv) | Copied cells, 1-year and 3-year |
+| [SOURCES.md](data/outcomes/italy-almalaurea/SOURCES.md) | Citation, URLs, definitions |
+| [EXTRACT.md](data/outcomes/italy-almalaurea/EXTRACT.md) | How to refresh the extract |

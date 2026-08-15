@@ -1,0 +1,116 @@
+---
+title: "Italy"
+subtitle: "AlmaLaurea outcomes for basic sciences PhDs"
+execute:
+  echo: false
+---
+
+```{python}
+from pathlib import Path
+
+import pandas as pd
+from IPython.display import Markdown, display
+
+DATA = Path("data/outcomes/italy-almalaurea/outcomes.csv")
+df = pd.read_csv(DATA)
+one = df[df["years_after_phd"] == 1].set_index("indicator")
+three = df[df["years_after_phd"] == 3].set_index("indicator")
+
+def cell(frame, key):
+    row = frame.loc[key]
+    val = row["value"]
+    if pd.isna(val):
+        return "not published"
+    unit = row["unit"]
+    if unit == "percent":
+        return f"{val:.1f}%"
+    if unit == "euro":
+        return f"€{val:,.0f}"
+    if unit == "count":
+        return f"{val:,.0f}"
+    if unit == "months":
+        return f"{val:.1f} months"
+    if unit == "score":
+        return f"{val:.1f} / 10"
+    if unit == "hours":
+        return f"{val:.1f}"
+    if unit == "years":
+        return f"{val:.1f}"
+    return str(val)
+```
+
+These figures are **not mathematics PhDs**. AlmaLaurea’s closest official area is **scienze di base** (basic sciences). That grouping includes mathematics and also physics, chemistry, computer science, earth sciences, and related programmes.
+
+The 1-year table is PhDs of 2024, interviewed in 2025. The 3-year table is PhDs of 2022 at a **smaller set of universities**. They are not the same people followed over time.
+
+Source: AlmaLaurea databank, survey year 2025, area `scienze di base`, retrieved 15 August 2026. [SOURCES.md](data/outcomes/italy-almalaurea/SOURCES.md).
+
+## Population
+
+| | 1 year | 3 years |
+| --- | ---: | ---: |
+| PhD holders in the collective | `{python} cell(one, "phd_holders")` | `{python} cell(three, "phd_holders")` |
+| Interviewed | `{python} cell(one, "interviewed")` | `{python} cell(three, "interviewed")` |
+| Response rate (all) | `{python} cell(one, "response_rate_all")` | `{python} cell(three, "response_rate_all")` |
+| Women | `{python} cell(one, "share_women")` | `{python} cell(three, "share_women")` |
+
+## Employment
+
+AlmaLaurea counts as employed anyone in **paid work or paid training** (including research grants).
+
+| | 1 year | 3 years |
+| --- | ---: | ---: |
+| Employment rate | `{python} cell(one, "employment_rate")` | `{python} cell(three, "employment_rate")` |
+| Men | `{python} cell(one, "employment_rate_men")` | `{python} cell(three, "employment_rate_men")` |
+| Women | `{python} cell(one, "employment_rate_women")` | `{python} cell(three, "employment_rate_women")` |
+| Unemployment rate | `{python} cell(one, "unemployment_rate")` | `{python} cell(three, "unemployment_rate")` |
+| Started work after the doctorate | `{python} cell(one, "started_work_after_phd")` | `{python} cell(three, "started_work_after_phd")` |
+| Months from doctorate to first job | `{python} cell(one, "months_phd_to_first_job")` | — |
+
+## Where they work
+
+There is **no high-school teacher cell**. *Education and research* is schools, universities, and research bodies together. Inside that branch, *other organisation or firm* is a residual. This page does not recode it as teaching.
+
+| Among the employed | 1 year | 3 years |
+| --- | ---: | ---: |
+| Education and research | `{python} cell(one, "branch_education_research")` | `{python} cell(three, "branch_education_research")` |
+| Computing | `{python} cell(one, "branch_it")` | `{python} cell(three, "branch_it")` |
+| Public sector | `{python} cell(one, "sector_public")` | `{python} cell(three, "sector_public")` |
+| Private sector | `{python} cell(one, "sector_private")` | `{python} cell(three, "sector_private")` |
+| Working abroad | `{python} cell(one, "work_geo_abroad")` | `{python} cell(three, "work_geo_abroad")` |
+
+| Of those in education and research | 1 year | 3 years |
+| --- | ---: | ---: |
+| University | `{python} cell(one, "edu_research_university")` | `{python} cell(three, "edu_research_university")` |
+| Research institute | `{python} cell(one, "edu_research_institute")` | `{python} cell(three, "edu_research_institute")` |
+| Other organisation or firm | `{python} cell(one, "edu_research_other")` | `{python} cell(three, "edu_research_other")` |
+
+| Occupation | 1 year | 3 years |
+| --- | ---: | ---: |
+| University researchers and graduate technicians | `{python} cell(one, "occupation_university_researcher")` | `{python} cell(three, "occupation_university_researcher")` |
+| Other intellectual / scientific professions | `{python} cell(one, "occupation_other_intellectual")` | `{python} cell(three, "occupation_other_intellectual")` |
+| Other occupations | `{python} cell(one, "occupation_other")` | `{python} cell(three, "occupation_other")` |
+
+## Pay and contract
+
+Net monthly pay is AlmaLaurea’s mean from 250-euro bands.
+
+| | 1 year | 3 years |
+| --- | ---: | ---: |
+| Mean net monthly pay | `{python} cell(one, "pay_net_monthly")` | `{python} cell(three, "pay_net_monthly")` |
+| Men | `{python} cell(one, "pay_net_monthly_men")` | `{python} cell(three, "pay_net_monthly_men")` |
+| Women | `{python} cell(one, "pay_net_monthly_women")` | `{python} cell(three, "pay_net_monthly_women")` |
+| Research grant | `{python} cell(one, "contract_research_grant")` | `{python} cell(three, "contract_research_grant")` |
+| Permanent contract | `{python} cell(one, "contract_permanent")` | `{python} cell(three, "contract_permanent")` |
+| Fixed-term contract | `{python} cell(one, "contract_fixed_term")` | `{python} cell(three, "contract_fixed_term")` |
+
+## Use of the doctorate
+
+| | 1 year | 3 years |
+| --- | ---: | ---: |
+| Uses doctoral skills extensively | `{python} cell(one, "skills_used_high")` | `{python} cell(three, "skills_used_high")` |
+| Doctorate required by law | `{python} cell(one, "phd_required_by_law")` | `{python} cell(three, "phd_required_by_law")` |
+| Job satisfaction (1–10) | `{python} cell(one, "job_satisfaction")` | `{python} cell(three, "job_satisfaction")` |
+| Employed and looking for work | `{python} cell(one, "employed_job_seeking")` | `{python} cell(three, "employed_job_seeking")` |
+
+The full cell list is [outcomes.csv](data/outcomes/italy-almalaurea/outcomes.csv). How it was copied is in [EXTRACT.md](data/outcomes/italy-almalaurea/EXTRACT.md).
