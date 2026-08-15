@@ -4,7 +4,16 @@ A public notebook of **official** data on mathematics and statistics doctorates.
 
 I have a mathematics PhD and I teach in a high school. This repository is how I keep the numbers honest: Eurostat for how many `F054` doctorates are awarded, AlmaLaurea (when extracted) for what the closest Italian field does next. No synthetic rows, no blended EU job-market headline.
 
-**Live site:** after GitHub Pages is enabled, `https://linzialessandro.github.io/EU_PhDs_Data_Analysis/`
+**Site:** [linzialessandro.github.io/EU_PhDs_Data_Analysis](https://linzialessandro.github.io/EU_PhDs_Data_Analysis/)
+
+To view it on your machine:
+
+```bash
+source .venv/bin/activate
+quarto preview
+```
+
+That opens the rendered pages (Home, Supply, Italy, Methods, Downloads) in the browser.
 
 ## What is in v1
 
@@ -36,7 +45,7 @@ brew install --cask quarto
 
 ## GitHub Pages
 
-On the first publish, in the GitHub repo: **Settings → Pages → Build and deployment → Source: Deploy from a branch → `gh-pages` / root**. The workflow `.github/workflows/pages.yml` renders from the committed snapshots only.
+The site is built by `.github/workflows/pages.yml` from the committed snapshots. In the repo: **Settings → Pages → Source: GitHub Actions**.
 
 ## Non-goals
 
