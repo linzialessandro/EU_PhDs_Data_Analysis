@@ -1,6 +1,6 @@
 ---
 title: "Italy"
-subtitle: "AlmaLaurea outcomes for basic sciences PhDs"
+subtitle: "AlmaLaurea (1–3 years) and ISTAT (4–6 years) — different fields"
 execute:
   echo: false
 ---
@@ -114,3 +114,72 @@ Net monthly pay is AlmaLaurea’s mean from 250-euro bands.
 | Employed and looking for work | `{python} cell(one, "employed_job_seeking")` | `{python} cell(three, "employed_job_seeking")` |
 
 The full cell list is [outcomes.csv](data/outcomes/italy-almalaurea/outcomes.csv). How it was copied is in [EXTRACT.md](data/outcomes/italy-almalaurea/EXTRACT.md).
+
+```{python}
+istat = pd.read_csv("data/outcomes/italy-istat/outcomes.csv")
+
+def icell(field, key):
+    row = istat[(istat["field"] == field) & (istat["indicator"] == key)]
+    if row.empty:
+        return "not published"
+    val = row["value"].iloc[0]
+    unit = row["unit"].iloc[0]
+    if pd.isna(val):
+        return "not published"
+    if unit == "percent":
+        return f"{val:.1f}%"
+    if unit == "count":
+        return f"{val:,.0f}"
+    if unit == "months":
+        return f"{val:.1f} months"
+    return str(val)
+```
+
+# ISTAT 2025 — four and six years out
+
+This is a **different field** from the AlmaLaurea tables above. Do not read the two blocks as a time series.
+
+ISTAT’s closest official group is **Scientifico**. The report’s footnote: biology, chemistry, biotechnology, nutrition science, **mathematics, statistics**, and physics.
+
+Interview year 2025. Cohorts: 2019 (six years after the degree) and 2021 (four years). Population `{python} icell("all", "population_total")` PhDs; `{python} icell("all", "interviewed")` interviews (response rate `{python} icell("all", "response_rate")`).
+
+Source: [SOURCES.md](data/outcomes/italy-istat/SOURCES.md).
+
+## Scientifico group
+
+| | Value |
+| --- | ---: |
+| Share of all Italian PhDs in these two cohorts | `{python} icell("Scientifico", "share_of_phds")` |
+| Employment rate (4–6 years) | `{python} icell("Scientifico", "employment_rate")` |
+| Men | `{python} icell("Scientifico", "employment_rate_men")` |
+| Women | `{python} icell("Scientifico", "employment_rate_women")` |
+| Scholarship for at least part of the doctorate | `{python} icell("Scientifico", "scholarship_during_phd")` |
+| Training period abroad during the doctorate | `{python} icell("Scientifico", "trained_abroad")` |
+
+ISTAT does **not** print occupation, pay, or school teaching for Scientifico alone.
+
+## All Italian PhDs — including school
+
+These sector shares are **all fields**, not Scientifico.
+
+| Among the employed (2025) | Share |
+| --- | ---: |
+| University education | `{python} icell("all", "sector_university")` |
+| Non-university education (schools and other) | `{python} icell("all", "sector_non_university_education")` |
+| Public research institutes | `{python} icell("all", "sector_public_research")` |
+| Private research institutes | `{python} icell("all", "sector_private_research")` |
+| Industry | `{python} icell("all", "sector_industry")` |
+
+*Istruzione non universitaria* is the first official school-sector cell we have. It is still **not** a high-school mathematics-teacher count.
+
+Among all PhDs in that sector (Tavola 6):
+
+| | Share |
+| --- | ---: |
+| Little or not at all satisfied with pay | `{python} icell("all", "school_dissatisfied_pay")` |
+| Little or not at all satisfied with career prospects | `{python} icell("all", "school_dissatisfied_career")` |
+| Little or not at all satisfied with use of doctoral knowledge | `{python} icell("all", "school_low_use_of_phd")` |
+
+The report also states that 85.3% of doctorate holders who work *nella scuola* have net monthly pay under €2,000. That sentence is not a mathematics-only figure.
+
+Full cells: [outcomes.csv](data/outcomes/italy-istat/outcomes.csv).

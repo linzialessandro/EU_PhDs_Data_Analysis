@@ -9,8 +9,8 @@ It is not a forecast of your career, and it does not invent an EU job-market ave
 
 ## What is here
 
-- **[Supply](supply.qmd)** — Eurostat counts of doctoral degrees in *Mathematics and statistics* (ISCED-F 2013 `F054`), by country, year, and sex.
-- **[Italy](italy.qmd)** — AlmaLaurea employment outcomes for **scienze di base** (basic sciences), the official closest field. Not mathematics-only.
+- **[Supply](supply.qmd)** — Eurostat `F054` doctoral **degrees**, **enrolments**, and **degree-mobile** graduates, by country, year, and sex.
+- **[Italy](italy.qmd)** — AlmaLaurea (*scienze di base*, 1–3 years) and ISTAT (*Scientifico*, 4–6 years). Different fields; not mathematics-only.
 - **[Methods](methods.qmd)** — definitions, exclusions, and why some familiar headlines are missing.
 - **[Downloads](downloads.qmd)** — the same CSV files the pages use.
 

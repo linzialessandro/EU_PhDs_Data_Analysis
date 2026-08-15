@@ -14,18 +14,13 @@ It is not employment, salary, occupation, or job-prospect data.
 | --- | --- |
 | Dataset | `educ_uoe_grad02` |
 | Title | Graduates by education level, programme orientation, sex and field of education |
-| Unit | `NR` (number of graduates) |
+| Unit | `NR` (number) |
 | Education level | `ED8` (doctoral or equivalent) |
 | Field | `F054` Mathematics and statistics |
 | Browser | https://ec.europa.eu/eurostat/databrowser/view/educ_uoe_grad02/default/table?lang=en |
-| Retrieved | 2026-08-15T08:12:58Z |
+| Retrieved | 2026-08-15T08:54:10Z |
 | Years kept | 2013–2024 (ISCED-F 2013 series) |
 | Non-missing country-year-sex cells | 1248 |
-
-## Why not `educ_uoe_grad03`
-
-The previous notebook called `educ_uoe_grad03`. That table is a **percentage
-distribution** (`unit = PC`), not headcounts. Counts come from `educ_uoe_grad02`.
 
 ## What was excluded
 
@@ -38,7 +33,7 @@ distribution** (`unit = PC`), not headcounts. Counts come from `educ_uoe_grad02`
 From the repository root, with the project virtualenv:
 
 ```bash
-python src/fetch_eurostat_f054.py
+python src/fetch_eurostat.py
 ```
 
 Commit the files this script writes. Do not edit the CSVs by hand.

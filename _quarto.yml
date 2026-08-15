@@ -5,7 +5,10 @@ project:
     - "*.qmd"
   resources:
     - data/supply/eurostat-f054/**
+    - data/supply/eurostat-enrt03-f054/**
+    - data/supply/eurostat-mobg01-f054/**
     - data/outcomes/italy-almalaurea/**
+    - data/outcomes/italy-istat/**
 
 website:
   title: "Mathematics PhDs in Europe"

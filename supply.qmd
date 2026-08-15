@@ -148,3 +148,117 @@ fig.show()
 ```
 
 Italy is missing 2015–2018 in this table. Those years are not estimated on this page. See [Methods](methods.qmd) for the Denmark zeros and the other exclusions.
+
+## Students in the programme
+
+Eurostat `educ_uoe_enrt03`: people **enrolled** in an F054 doctorate that year, not degrees awarded.
+
+```{python}
+enr = pd.read_csv("data/supply/eurostat-enrt03-f054/enrolments_long.csv")
+enr["year"] = enr["year"].astype(int)
+enr_eu = enr[(enr["geo"] == "EU27_2020") & (enr["sex"] == "T")].dropna(subset=["enrolments"])
+enr_latest_year = int(enr["year"].max())
+enr_countries = (
+    enr[(enr["year"] == enr_latest_year) & (enr["sex"] == "T") & (~enr["is_aggregate"])]
+    .dropna(subset=["enrolments"])
+    .sort_values("enrolments", ascending=False)
+)
+it_enr = enr[(enr["country"] == "Italy") & (enr["sex"] == "T") & (enr["year"] == enr_latest_year)].dropna(subset=["enrolments"])
+it_enr_bit = (
+    f"Italy: **{int(it_enr['enrolments'].iloc[0]):,}** students in {enr_latest_year}."
+    if len(it_enr)
+    else f"Italy has no published enrolment for {enr_latest_year}."
+)
+display(Markdown(
+    f"EU-27 official aggregate in years that exist. {it_enr_bit}"
+))
+
+fig = px.line(
+    enr_eu,
+    x="year",
+    y="enrolments",
+    markers=True,
+    labels={"year": "Year", "enrolments": "Students enrolled (F054, ED8)"},
+)
+fig.update_layout(
+    title="EU-27 (Eurostat aggregate): students in mathematics and statistics doctorates",
+    xaxis=dict(dtick=1),
+    height=380,
+    margin=dict(t=50, l=40, r=20, b=40),
+)
+fig.show()
+
+fig = px.bar(
+    enr_countries,
+    x="enrolments",
+    y="country",
+    orientation="h",
+    labels={"enrolments": "Students enrolled (F054, ED8)", "country": ""},
+)
+fig.update_layout(
+    title=f"F054 doctoral enrolments in {enr_latest_year} (published totals)",
+    height=max(420, 22 * len(enr_countries)),
+    margin=dict(t=50, l=10, r=20, b=40),
+    yaxis=dict(autorange="reversed"),
+)
+fig.show()
+```
+
+## Degree-mobile graduates
+
+Eurostat `educ_uoe_mobg01`: F054 doctorates awarded to people whose **prior education was in another country**. Not all foreign citizens, and not employment.
+
+```{python}
+mob = pd.read_csv("data/supply/eurostat-mobg01-f054/mobile_graduates_long.csv")
+mob["year"] = mob["year"].astype(int)
+mob_eu = mob[(mob["geo"] == "EU27_2020") & (mob["sex"] == "T")].dropna(subset=["mobile_graduates"])
+mob_latest = int(mob["year"].max())
+mob_countries = (
+    mob[(mob["year"] == mob_latest) & (mob["sex"] == "T") & (~mob["is_aggregate"])]
+    .dropna(subset=["mobile_graduates"])
+    .sort_values("mobile_graduates", ascending=False)
+)
+grad_eu_latest = eu27[(eu27["year"] == mob_latest)].dropna(subset=["graduates"])
+ratio_bit = ""
+if len(mob_eu[mob_eu["year"] == mob_latest]) and len(grad_eu_latest):
+    m = float(mob_eu.loc[mob_eu["year"] == mob_latest, "mobile_graduates"].iloc[0])
+    g = float(grad_eu_latest["graduates"].iloc[0])
+    ratio_bit = (
+        f" In {mob_latest} Eurostat’s EU-27 mobile count is **{m:,.0f}** and its EU-27 graduate count is **{g:,.0f}** "
+        f"({100 * m / g:.0f}% of that official graduate aggregate)."
+    )
+display(Markdown(
+    "The EU-27 mobile series is sparse; only published years are shown." + ratio_bit
+))
+
+if len(mob_eu):
+    fig = px.line(
+        mob_eu,
+        x="year",
+        y="mobile_graduates",
+        markers=True,
+        labels={"year": "Year", "mobile_graduates": "Degree-mobile F054 doctorates"},
+    )
+    fig.update_layout(
+        title="EU-27 (Eurostat aggregate): degree-mobile F054 doctorates",
+        xaxis=dict(dtick=1),
+        height=340,
+        margin=dict(t=50, l=40, r=20, b=40),
+    )
+    fig.show()
+
+fig = px.bar(
+    mob_countries,
+    x="mobile_graduates",
+    y="country",
+    orientation="h",
+    labels={"mobile_graduates": "Degree-mobile F054 doctorates", "country": ""},
+)
+fig.update_layout(
+    title=f"Degree-mobile F054 doctorates in {mob_latest} (published totals)",
+    height=max(420, 22 * len(mob_countries)),
+    margin=dict(t=50, l=10, r=20, b=40),
+    yaxis=dict(autorange="reversed"),
+)
+fig.show()
+```

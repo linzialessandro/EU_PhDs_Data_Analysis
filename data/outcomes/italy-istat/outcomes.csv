@@ -1,0 +1,28 @@
+indicator,field,official_label_en,official_label_it,value,unit,cohort,notes
+population_total,all,PhD holders in the two cohorts,Dottori di ricerca (coorti 2019 e 2021),16198,count,2019+2021,Census of the two cohorts. Methodological note.
+interviewed,all,Valid interviews,Interviste valide,7807,count,2019+2021,Response rate 48.2%. Weighted estimates.
+response_rate,all,Response rate,Tasso di risposta,48.2,percent,2019+2021,
+employment_rate,Scientifico,Employment rate — Scientifico group,Tasso di occupazione — gruppo Scientifico,96.95,percent,2019+2021,Tavola 4 and 7. Paid work includes research grants.
+employment_rate_2019,Scientifico,Employment rate — 2019 cohort,Tasso di occupazione — coorte 2019,96.73,percent,2019,Six years after the degree. Tavola 4.
+employment_rate_2021,Scientifico,Employment rate — 2021 cohort,Tasso di occupazione — coorte 2021,97.17,percent,2021,Four years after the degree. Tavola 4.
+employment_rate_men,Scientifico,Employment rate — men,Tasso di occupazione — maschi,97.95,percent,2019+2021,Tavola 7.
+employment_rate_women,Scientifico,Employment rate — women,Tasso di occupazione — femmine,95.96,percent,2019+2021,Tavola 7.
+share_of_phds,Scientifico,Share of all PhDs in the Scientifico group,Quota sul totale dei dottori — gruppo Scientifico,28.06,percent,2019+2021,Tavola 3.
+share_of_phds_2019,Scientifico,Share of 2019 cohort,Quota — coorte 2019,27.42,percent,2019,Tavola 3.
+share_of_phds_2021,Scientifico,Share of 2021 cohort,Quota — coorte 2021,28.69,percent,2021,Tavola 3.
+scholarship_during_phd,Scientifico,Had a scholarship for at least part of the doctorate,Con borsa almeno per una parte del dottorato,88.01,percent,2019+2021,Tavola 3.
+trained_abroad,Scientifico,Spent a training period abroad during the doctorate,Hanno svolto un periodo di formazione all'estero,57.55,percent,2019+2021,Tavola 8.
+months_abroad,Scientifico,Mean months spent abroad during the doctorate,Numero medio di mesi trascorsi all'estero,5.92,months,2019+2021,Tavola 8.
+employment_rate,STEM,Employment rate — STEM area,Tasso di occupazione — area STEM,96.83,percent,2019+2021,Tavola 4. Broader than Scientifico.
+share_of_phds,STEM,Share of all PhDs in STEM,Quota sul totale — area STEM,52.56,percent,2019+2021,Tavola 3.
+employment_rate,all,Employment rate — all PhDs,Tasso di occupazione — totale,96.13,percent,2019+2021,Tavola 4. Not a field.
+sector_university,all,Employed in university education,Istruzione universitaria,30.09,percent,2019+2021,Tavola 5/7. All PhDs. Not by field.
+sector_non_university_education,all,Employed in non-university education,Istruzione non universitaria,10.52,percent,2019+2021,Tavola 5/7. Schools and other non-university education. All PhDs. Not a math-teacher count.
+sector_public_research,all,Employed in public research institutes,Istituti di ricerca pubblici,12.57,percent,2019+2021,Tavola 5/7. All PhDs.
+sector_private_research,all,Employed in private research institutes,Istituti di ricerca privati,6.62,percent,2019+2021,Tavola 5/7. All PhDs.
+sector_industry,all,Employed in industry,Industria,10.1,percent,2019+2021,Tavola 5/7. All PhDs.
+phd_required,STEM,Job requires the doctorate,Attività in cui è richiesto il dottorato,43.62,percent,2019+2021,Tavola 9. STEM area not Scientifico.
+phd_required,all,Job requires the doctorate,Attività in cui è richiesto il dottorato,39.86,percent,2019+2021,Tavola 9.
+school_dissatisfied_pay,all,Little or not at all satisfied with pay — non-university education,Poco o per niente soddisfatto del guadagno — istruzione non universitaria,49.42,percent,2019+2021,Tavola 6. All PhDs in that sector.
+school_dissatisfied_career,all,Little or not at all satisfied with career prospects — non-university education,Poco o per niente soddisfatto delle prospettive di carriera — istruzione non universitaria,50.34,percent,2019+2021,Tavola 6. All PhDs in that sector.
+school_low_use_of_phd,all,Little or not at all satisfied with use of doctoral knowledge — non-university education,Poco o per niente soddisfatto dell'utilizzo delle conoscenze del dottorato — istruzione non universitaria,32.83,percent,2019+2021,Tavola 6. All PhDs in that sector.

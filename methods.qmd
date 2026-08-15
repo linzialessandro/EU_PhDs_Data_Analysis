@@ -12,8 +12,11 @@ The primary reader is the author — a mathematics PhD working as a high-school 
 
 | Layer | Source | Unit of analysis | Question it can answer |
 | --- | --- | --- | --- |
-| Supply | Eurostat `educ_uoe_grad02` | ISCED 2011 `ED8` × ISCED-F 2013 `F054` | How many doctoral degrees in mathematics and statistics were awarded? |
-| Italy outcomes | AlmaLaurea PhD employment survey | Official area **scienze di base** (basic sciences) | What jobs, pay, and contracts does that Italian field report? |
+| Supply — degrees | Eurostat `educ_uoe_grad02` | `ED8` × `F054` | How many mathematics and statistics doctorates were awarded? |
+| Supply — enrolments | Eurostat `educ_uoe_enrt03` | `ED8` × `F054` | How many people are in those programmes? |
+| Supply — mobility | Eurostat `educ_uoe_mobg01` | `ED8` × `F054` | How many of those degrees went to degree-mobile students? |
+| Italy, 1–3 years | AlmaLaurea | **scienze di base** | Jobs, pay, contract for that Italian field |
+| Italy, 4–6 years | ISTAT 2025 | **Scientifico** (includes biology and physics) | Employment for that Italian group; school sector only for *all* PhDs |
 
 The layers are not the same population. They are not joined into one “EU math PhD career” file.
 
@@ -27,7 +30,9 @@ The layers are not the same population. They are not joined into one “EU math 
 - **Sex.** Total, women, men — as Eurostat publishes them.
 - **Missing values.** Left missing. Zeros are shown as zeros. Denmark reports 335 and 373 doctoral F054 graduates in 2013–2014 and then 0 every year through 2024; that is almost certainly a reporting break, not a vanished programme. It is not corrected here.
 
-Refresh is a deliberate run of `src/fetch_eurostat_f054.py` and a commit. The site does not call Eurostat when a page is opened.
+Refresh is a deliberate run of `src/fetch_eurostat.py` and a commit. The site does not call Eurostat when a page is opened.
+
+Enrolments are a **stock** (people in the programme). Graduates and mobile graduates are **flows** (degrees awarded that year). Degree mobility is prior education in another country, not citizenship.
 
 ## AlmaLaurea rules
 
@@ -36,6 +41,12 @@ Refresh is a deliberate run of `src/fetch_eurostat_f054.py` and a commit. The si
 - Keep that name. Do not retitle the page “mathematics PhDs.”
 - Do not recode *other organisation or firm* as high-school teaching.
 - The 3-year table is a smaller set of universities, not a follow-up of the 1-year cohort.
+
+## ISTAT rules
+
+- Official group used here is **Scientifico**. ISTAT defines it as biology, chemistry, biotechnology, nutrition, mathematics, statistics, and physics.
+- Do not join Scientifico to AlmaLaurea *scienze di base* as one career path.
+- *Istruzione non universitaria* is printed for all Italian PhDs. It is not a mathematics-teacher count.
 
 ## What we refuse to publish
 
@@ -51,7 +62,7 @@ Refresh is a deliberate run of `src/fetch_eurostat_f054.py` and a commit. The si
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python src/fetch_eurostat_f054.py
+python src/fetch_eurostat.py
 quarto render
 ```
 

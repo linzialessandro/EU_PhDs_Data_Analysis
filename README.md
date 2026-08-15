@@ -19,8 +19,8 @@ That opens the rendered pages (Home, Supply, Italy, Methods, Downloads) in the b
 
 | Page | Source | Status |
 | --- | --- | --- |
-| [Supply](supply.qmd) | Eurostat `educ_uoe_grad02`, ISCED `ED8`, field `F054` | Snapshot in `data/supply/eurostat-f054/` |
-| [Italy](italy.qmd) | AlmaLaurea PhD employment survey, official area **scienze di base** | [outcomes.csv](data/outcomes/italy-almalaurea/outcomes.csv) |
+| [Supply](supply.qmd) | Eurostat `ED8` × `F054`: degrees, enrolments, degree-mobile graduates | `data/supply/eurostat-*/` |
+| [Italy](italy.qmd) | AlmaLaurea *scienze di base* (1–3 years); ISTAT *Scientifico* (4–6 years) | `data/outcomes/italy-*/` |
 | [Methods](methods.qmd) | — | Definitions and exclusions |
 | [Downloads](downloads.qmd) | The same files the site reads | |
 
@@ -30,8 +30,7 @@ That opens the rendered pages (Home, Supply, Italy, Methods, Downloads) in the b
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python src/fetch_eurostat_f054.py
-# optional: fill data/outcomes/italy-almalaurea/ from EXTRACT.md
+python src/fetch_eurostat.py
 quarto render
 ```
 

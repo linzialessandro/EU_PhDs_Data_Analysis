@@ -14,6 +14,20 @@ These are the committed snapshots. If a file is not listed, it is not on the sit
 | [metadata.json](data/supply/eurostat-f054/metadata.json) | Retrieval time and filters |
 | [SOURCES.md](data/supply/eurostat-f054/SOURCES.md) | Citation and exclusions |
 
+### Enrolments (`educ_uoe_enrt03`)
+
+| File | Contents |
+| --- | --- |
+| [enrolments_long.csv](data/supply/eurostat-enrt03-f054/enrolments_long.csv) | Country, year, sex, students in the programme |
+| [SOURCES.md](data/supply/eurostat-enrt03-f054/SOURCES.md) | Citation |
+
+### Degree-mobile graduates (`educ_uoe_mobg01`)
+
+| File | Contents |
+| --- | --- |
+| [mobile_graduates_long.csv](data/supply/eurostat-mobg01-f054/mobile_graduates_long.csv) | Country, year, sex, mobile awards |
+| [SOURCES.md](data/supply/eurostat-mobg01-f054/SOURCES.md) | Citation |
+
 ## Italy (AlmaLaurea)
 
 Official area: **scienze di base** (basic sciences). Not mathematics-only.
@@ -23,3 +37,13 @@ Official area: **scienze di base** (basic sciences). Not mathematics-only.
 | [outcomes.csv](data/outcomes/italy-almalaurea/outcomes.csv) | Copied cells, 1-year and 3-year |
 | [SOURCES.md](data/outcomes/italy-almalaurea/SOURCES.md) | Citation, URLs, definitions |
 | [EXTRACT.md](data/outcomes/italy-almalaurea/EXTRACT.md) | How to refresh the extract |
+
+## Italy (ISTAT 2025)
+
+Official group: **Scientifico**. Includes biology and physics. Not mathematics-only.
+
+| File | Contents |
+| --- | --- |
+| [outcomes.csv](data/outcomes/italy-istat/outcomes.csv) | Copied cells |
+| [SOURCES.md](data/outcomes/italy-istat/SOURCES.md) | Citation and the Scientifico definition |
+| [Tavole.xlsx](data/outcomes/italy-istat/Tavole.xlsx) | Official ISTAT workbook |
